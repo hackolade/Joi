@@ -1,0 +1,10 @@
+{
+	"extension": "ts",
+	"filterName": "TypeScript",
+	"namePrefix": "Joi",
+	"hasUpdateScript": false,
+	"level": {
+		"entity": true,
+		"container": false
+	}
+}

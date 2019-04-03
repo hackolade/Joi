@@ -1,0 +1,25 @@
+{
+	"name": "Joi",
+	"version": "0.1.0",
+	"versionDate": "2019-03-13",
+	"author": "robert almalak",
+	"engines": {
+		"hackolade": "2.1.x",
+		"hackoladePlugin": "1.2.0"
+	},
+	"contributes": {
+		"target": {
+			"applicationTarget": "JOI",
+			"title": "Joi Schema",
+			"versions": [
+				"1.x"
+			]
+		},
+		"features": {
+			"nestedCollections": false,
+			"enableForwardEngineering": true,
+			"enableJsonType": false
+		}
+	},
+	"description": "Hackolade plugin for Joi Object generation"
+}
