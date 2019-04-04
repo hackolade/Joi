@@ -40,9 +40,22 @@
  * }
  */
 {
-	"delete": {
-		"entity": [
-			"tableOptions"
-		]
+	"modify": {
+		"field": [{
+			"from": {
+				"type": "document"
+			},
+			"to": {
+				"type": "object"
+			}
+		}],
+		"model": [{
+			"from": {
+				"modelName": "New Model"
+			},
+			"to": {
+				"modelName": "JOI Model"
+			}
+		}]
 	}
 }

@@ -1,7 +1,9 @@
 {
-	"name": "document",
+	"name": "object",
 	"erdAbbreviation": "<obj>",
 	"dtdAbbreviation": "{...}",
+	"parentType": "document",
+	"default": true,
 	"defaultValues": {
 		"primaryKey": false,
 		"relationshipType": "",
@@ -9,12 +11,12 @@
 		"childRelationships": [],
 		"foreignCollection": "",
 		"foreignField": [],
+		"enabled": true,
 		"properties": [],
 		"dependencies": [],
 		"minProperties": "",
 		"maxProperties": "",
 		"additionalProperties": false,
-		"enum": [],
-		"comments":""
+		"enum": []
 	}
 }

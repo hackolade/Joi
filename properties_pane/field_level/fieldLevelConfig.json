@@ -73,6 +73,110 @@ making sure that you maintain a proper JSON format.
 				"propertyKeyword": "optional",
 				"propertyType": "checkbox"
 			}
+		],
+		"number": [
+			"name",
+			"type",
+			{
+				"propertyName": "Sub-type",
+				"propertyKeyword": "mode",
+				"shouldValidate": false,
+				"propertyType": "select",
+				"options": [
+					"integer32",
+					"integer64",
+					"double",
+					"decimal"
+				],
+				"data": "options",
+				"valueType": "string"
+			},
+			"description",
+			"dependencies",
+			"required",
+/*			"primaryKey",
+			"foreignCollection",
+			"foreignField",
+			"relationshipType",
+*/			"default",
+			"unit",
+			"minimum",
+			"exclusiveMinimum",
+			"maximum",
+			"exclusiveMaximum",
+			"multipleOf",
+			"divisibleBy",
+			"enum",
+			{
+				"propertyName": "Optional",
+				"propertyKeyword": "optional",
+				"propertyType": "checkbox"
+			}/*,
+			"sample",
+			"comments"*/
+		],
+		"date": [
+			"name",
+			"type",
+			"description",
+			"dependencies",
+			"required",
+			"default",
+			{
+				"propertyName": "Optional",
+				"propertyKeyword": "optional",
+				"propertyType": "checkbox"
+			}/*,
+			"sample",
+			"comments"*/
+		],
+		"boolean": [
+			"name",
+			"type",
+			"description",
+			"dependencies",
+			"required",
+			"default",
+			{
+				"propertyName": "Optional",
+				"propertyKeyword": "optional",
+				"propertyType": "checkbox"
+			}/*,
+			"sample",
+			"comments"*/
+		],
+		"object": [
+			"name",
+			"type",
+			"description",
+			"dependencies",
+			"required",
+			"minProperties",
+			"maxProperties",
+			"additionalProperties",
+			{
+				"propertyName": "Optional",
+				"propertyKeyword": "optional",
+				"propertyType": "checkbox"
+			}/*,
+			"comments"*/
+		],
+		"array": [
+			"name",
+			"type",
+			"description",
+			"dependencies",
+			"required",
+			"minItems",
+			"maxItems",
+			"uniqueItems",
+			"additionalItems",
+			{
+				"propertyName": "Optional",
+				"propertyKeyword": "optional",
+				"propertyType": "checkbox"
+			}/*,
+			"comments"*/
 		]
 	}
 }
