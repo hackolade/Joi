@@ -48,13 +48,27 @@
 			"to": {
 				"type": "object"
 			}
+		},{
+			"from": {
+				"type": "integer"
+			},
+			"to": {
+				"type": "number"
+			}
+		},{
+			"from": {
+				"type": "numeric"
+			},
+			"to": {
+				"type": "number"
+			}
 		}],
 		"model": [{
 			"from": {
 				"modelName": "New Model"
 			},
 			"to": {
-				"modelName": "JOI Model"
+				"modelName": "Joi Model"
 			}
 		}]
 	}

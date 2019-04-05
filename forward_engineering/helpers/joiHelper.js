@@ -77,6 +77,21 @@ function generateNumberProperty() {
     return valueExpression;
 }
 
+function generateNullProperty() {
+    let valueExpression = ts.createCall(
+        ts.createPropertyAccess(
+            ts.createIdentifier('Joi'),
+            ts.createIdentifier('valid')
+        ),
+        undefined,
+        [ts.createNull()]
+    );
+
+    valueExpression = required(valueExpression);
+
+    return valueExpression;
+}
+
 function generateArrayProperty(propList) {
     let valueExpression =
         ts.createCall(
@@ -129,13 +144,20 @@ function generateExpression(value, modelDefinitions) {
     var expression;
 
     // if its a reference type
-    if(value['$ref']){
+    if (value['$ref']) {
         let model = value['$ref'].replace("#model/definitions/", "");
         let modelValue = modelDefinitions.properties[model];
         return generateExpression(modelValue, modelDefinitions);
     }
 
-    if (value.type === "string") {
+    //multi type
+    if(value.type instanceof Array && value.type.length > 0){
+        type = value.type[0];
+    }else{
+        type = value.type;
+    }
+
+    if (type === "string") {
         expression = generateStringProperty();
         if (value.length) {
             expression = stringLength(expression, value.length);
@@ -147,20 +169,22 @@ function generateExpression(value, modelDefinitions) {
             expression = stringMaxLength(expression, value.maxLength);
         }
     }
-    else if (value.type === "numeric" || value.type === "number") {
+    else if (type === "numeric" || type === "number") {
         expression = generateNumberProperty();
     }
-    else if (value.type === "bool") {
+    else if (type === "bool" || type === "boolean") {
         expression = generateBoolProperty();
     }
-    else if (value.type === "date") {
+    else if (type === "date") {
         expression = generateDateProperty();
     }
-    else if (value.type === "object" || value.type === "document") {
+    else if (type === "object" || type === "document") {
         expression = generateObjectProperty(generateJoiTypes(value, modelDefinitions));
     }
-    else if (value.type === "array") {
+    else if (type === "array") {
         expression = generateArrayProperty(generateJoiTypes(value, modelDefinitions));
+    } else if (type === "null") {
+        expression = generateNullProperty();
     }
 
     if (value.optional) {
@@ -202,10 +226,10 @@ function generateJoiTypes(jsonSchema, modelDefinitions) {
         let value = jsonSchema.properties[key];
 
         let expression = generateExpression(value, modelDefinitions);
-/*
-        if (!expression) {
-            throw Error(JSON.stringify(value) + JSON.stringify(expression));
-        }
+        /*
+                if (!expression) {
+                    throw Error(JSON.stringify(value) + JSON.stringify(expression));
+                }
         */
         //check for required is set to true
         if (jsonSchema.required) {
