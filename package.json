@@ -2,7 +2,7 @@
 	"name": "Joi",
 	"version": "0.1.0",
 	"versionDate": "2019-03-13",
-	"author": "robert almalak",
+	"author": "Qwin",
 	"engines": {
 		"hackolade": "2.1.x",
 		"hackoladePlugin": "1.2.0"
