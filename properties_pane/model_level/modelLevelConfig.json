@@ -57,6 +57,17 @@ making sure that you maintain a proper JSON format.
 		"lowerTab": "Details",
 		"structure": [
 			{
+				"propertyName": "DB vendor",
+				"propertyKeyword": "dbVendor",
+				"shouldValidate": false,
+				"propertyTooltip": "DB vendor",
+				"propertyType": "select",
+				"options": [
+					"Joi"
+				],
+				"disabledOption": true
+			},
+			{
 				"propertyName": "Custom Property",
 				"propertyKeyword": "customDetailsProperty",
 				"shouldValidate": false,
