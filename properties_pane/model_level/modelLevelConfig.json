@@ -68,24 +68,13 @@ making sure that you maintain a proper JSON format.
 				"disabledOption": true
 			},
 			{
-				"propertyName": "Custom Property",
-				"propertyKeyword": "customDetailsProperty",
+				"propertyName": "Comments",
+				"propertyKeyword": "comments",
 				"shouldValidate": false,
 				"propertyTooltip": "comments",
+				"addTimestampButton": false,
 				"propertyType": "details",
 				"template": "textarea"
-			}
-		]
-	},
-	{
-		"lowerTab": "Relationships",
-		"structure": [
-			{
-				"propertyName": "Custom Relationships Property",
-				"propertyKeyword": "customRelationshipsProperty",
-				"shouldValidate": false,
-				"propertyTooltip": "db vendor",
-				"propertyType": "text"
 			}
 		]
 	}
