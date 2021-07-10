@@ -57,24 +57,24 @@ making sure that you maintain a proper JSON format.
 		"lowerTab": "Details",
 		"structure": [
 			{
-				"propertyName": "Custom Property",
-				"propertyKeyword": "customDetailsProperty",
+				"propertyName": "DB vendor",
+				"propertyKeyword": "dbVendor",
+				"shouldValidate": false,
+				"propertyTooltip": "DB vendor",
+				"propertyType": "select",
+				"options": [
+					"Joi"
+				],
+				"disabledOption": true
+			},
+			{
+				"propertyName": "Comments",
+				"propertyKeyword": "comments",
 				"shouldValidate": false,
 				"propertyTooltip": "comments",
+				"addTimestampButton": false,
 				"propertyType": "details",
 				"template": "textarea"
-			}
-		]
-	},
-	{
-		"lowerTab": "Relationships",
-		"structure": [
-			{
-				"propertyName": "Custom Relationships Property",
-				"propertyKeyword": "customRelationshipsProperty",
-				"shouldValidate": false,
-				"propertyTooltip": "db vendor",
-				"propertyType": "text"
 			}
 		]
 	}
