@@ -24,7 +24,8 @@
     "description": "Hackolade plugin for Joi Object generation",
     "dependencies": {
         "fs": "0.0.1-security",
-        "path": "0.12.7"
+        "path": "0.12.7",
+        "typescript": "5.4.5"
     },
     "lint-staged": {
         "*.{js,json}": "prettier --write"
