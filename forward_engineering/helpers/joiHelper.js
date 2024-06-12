@@ -120,7 +120,7 @@ function stringLength(expression, length) {
 }
 
 function generateExpression(value, modelDefinitions) {
-	var expression;
+	let expression, type;
 
 	// if its a reference type
 	if (value['$ref']) {
@@ -169,7 +169,7 @@ function generateExpression(value, modelDefinitions) {
 }
 
 function generateJoiTypes(jsonSchema, modelDefinitions) {
-	var propList = [];
+	let propList = [];
 
 	//this is needed because the json structure changes when
 	//1 item is only in the array (it becomes just an object)
@@ -178,15 +178,15 @@ function generateJoiTypes(jsonSchema, modelDefinitions) {
 		itemsArray = jsonSchema.items instanceof Array ? jsonSchema.items : [jsonSchema.items];
 	}
 	// if array
-	for (var index in itemsArray) {
-		var value = itemsArray[index];
+	for (const index in itemsArray) {
+		const value = itemsArray[index];
 
 		let expression = generateExpression(value, modelDefinitions);
 
 		//check for required is set to true
 		if (jsonSchema.required) {
-			var list = jsonSchema.required;
-			if (list.includes(key)) {
+			const list = jsonSchema.required;
+			if (list.includes(index)) {
 				expression = required(expression);
 			}
 		}
@@ -195,15 +195,10 @@ function generateJoiTypes(jsonSchema, modelDefinitions) {
 	}
 
 	// if object
-	for (var key in jsonSchema.properties) {
+	for (const key in jsonSchema.properties) {
 		let value = jsonSchema.properties[key];
 
 		let expression = generateExpression(value, modelDefinitions);
-		/*
-                if (!expression) {
-                    throw Error(JSON.stringify(value) + JSON.stringify(expression));
-                }
-        */
 		//check for required is set to true
 		if (jsonSchema.required) {
 			let list = jsonSchema.required;
@@ -219,7 +214,7 @@ function generateJoiTypes(jsonSchema, modelDefinitions) {
 }
 
 const generateJoiObjects = (jsonSchema, modelDefinitions) => {
-	var propList = generateJoiTypes(jsonSchema, modelDefinitions);
+	const propList = generateJoiTypes(jsonSchema, modelDefinitions);
 
 	//loop and add all props
 	return ts.createVariableStatement(
