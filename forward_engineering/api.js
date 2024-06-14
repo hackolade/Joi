@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
 const joiHelper = require('./helpers/joiHelper');
-const ts = require("typescript");
+const ts = require('typescript');
 
 module.exports = {
 	generateScript(data, logger, callback) {
@@ -13,20 +13,20 @@ module.exports = {
 			const externalDefinitions = JSON.parse(data.externalDefinitions);
 
 			const resultFile = ts.createSourceFile(
-				"someFileName.ts",
-				"",
+				'someFileName.ts',
+				'',
 				ts.ScriptTarget.Latest,
 				/*setParentNodes*/ false,
-				ts.ScriptKind.TS
-			  );
-			  const printer = ts.createPrinter({
-				newLine: ts.NewLineKind.LineFeed
-			  });
-			  const result = printer.printNode(
+				ts.ScriptKind.TS,
+			);
+			const printer = ts.createPrinter({
+				newLine: ts.NewLineKind.LineFeed,
+			});
+			const result = printer.printNode(
 				ts.EmitHint.Unspecified,
 				joiHelper.generateJoiObjects(jsonSchema, modelDefinitions),
-				resultFile
-			  );
+				resultFile,
+			);
 
 			callback(null, buildScript(result));
 		} catch (e) {
@@ -36,7 +36,7 @@ module.exports = {
 				callback({ message: e.message, stack: e.stack });
 			}, 150);
 		}
-	}
+	},
 };
 
 const buildScript = (...statements) => {
