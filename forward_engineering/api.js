@@ -1,5 +1,3 @@
-'use strict';
-
 const joiHelper = require('./helpers/joiHelper');
 const ts = require('typescript');
 
