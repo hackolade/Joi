@@ -8,10 +8,7 @@ const buildScript = (...statements) => {
 function generateScript(data, logger, callback) {
 	try {
 		const jsonSchema = JSON.parse(data.jsonSchema);
-
 		const modelDefinitions = JSON.parse(data.modelDefinitions);
-		const internalDefinitions = JSON.parse(data.internalDefinitions);
-		const externalDefinitions = JSON.parse(data.externalDefinitions);
 
 		const resultFile = ts.createSourceFile(
 			'someFileName.ts',
