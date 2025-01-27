@@ -22,7 +22,7 @@ esbuild
 		outdir: RELEASE_FOLDER_PATH,
 		minify: true,
 		logLevel: 'info',
-		external: ['typescript', 'joi'],
+		external: ['typescript'],
 		plugins: [
 			clean({
 				patterns: [DEFAULT_RELEASE_FOLDER_PATH],
@@ -31,12 +31,6 @@ esbuild
 				assets: {
 					from: [path.join('node_modules', 'typescript', '**', '*')],
 					to: [path.join('node_modules', 'typescript')],
-				},
-			}),
-			copy({
-				assets: {
-					from: [path.join('node_modules', 'joi', '**', '*')],
-					to: [path.join('node_modules', 'joi')],
 				},
 			}),
 			copyFolderFiles({
