@@ -22,10 +22,16 @@ esbuild
 		outdir: RELEASE_FOLDER_PATH,
 		minify: true,
 		logLevel: 'info',
-		external: ['typescript'],
+		external: ['lodash', 'typescript'],
 		plugins: [
 			clean({
 				patterns: [DEFAULT_RELEASE_FOLDER_PATH],
+			}),
+			copy({
+				assets: {
+					from: [path.join('node_modules', 'lodash', '**', '*')],
+					to: [path.join('node_modules', 'lodash')],
+				},
 			}),
 			copy({
 				assets: {
