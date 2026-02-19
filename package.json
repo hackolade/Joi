@@ -27,18 +27,16 @@
         "path": "0.12.7",
         "typescript": "5.4.5"
     },
-    "lint-staged": {
-        "*.{js,json}": "prettier --write"
-    },
     "simple-git-hooks": {
-        "pre-commit": "npx lint-staged",
+        "pre-commit": "npx lint-staged --config lint-staged.config.js",
         "pre-push": "npm run lint"
     },
     "scripts": {
         "lint": "oxlint . || true",
         "package": "node esbuild.package.js",
         "postinstall": "npx simple-git-hooks",
-        "lint:check": "oxlint --type-aware --type-check . || true"
+        "lint:check": "oxlint --type-aware --type-check . || true",
+        "format": "prettier --write ."
     },
     "devDependencies": {
         "@hackolade/hck-esbuild-plugins-pack": "0.0.1",
