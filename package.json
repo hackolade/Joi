@@ -22,9 +22,7 @@
     },
     "description": "Hackolade plugin for Joi Object generation",
     "dependencies": {
-        "fs": "0.0.1-security",
         "lodash": "4.17.23",
-        "path": "0.12.7",
         "typescript": "5.4.5"
     },
     "simple-git-hooks": {
