@@ -1,6 +1,6 @@
 {
     "name": "Joi",
-    "version": "0.2.6",
+    "version": "0.2.7",
     "author": "Qwin",
     "engines": {
         "hackolade": "2.1.x",
